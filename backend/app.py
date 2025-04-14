@@ -59,7 +59,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["http://localhost:5173", "https://notes-app-xcx4.onrender.com/"])
 
 # Register blueprints
 app.register_blueprint(notes_bp, url_prefix='/api/notes')

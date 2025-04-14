@@ -57,6 +57,7 @@
 
 import axios from 'axios';
 
+//const API_URL = 'https://notes-app-xcx4.onrender.com/api';
 const API_URL = 'http://localhost:5000/api';
 
 export const getNotes = async () => {
