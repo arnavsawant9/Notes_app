@@ -107,3 +107,86 @@ export const deleteNote = async (id) => {
     throw error;
   }
 };
+
+
+
+
+
+
+
+
+
+// import axios from 'axios';
+
+// // Define the base URL for API requests
+// const API_URL = 'http://localhost:5000/api';
+
+// // Type for the note data
+// export interface NoteType {
+//   _id: string;
+//   title: string;
+//   content: string;
+//   date: string;
+//   file_name?: string;
+// }
+
+// // Generic API response type
+// interface ApiResponse<T = any> {
+//   success: boolean;
+//   data: T;
+// }
+
+// // Get all notes
+// export const getNotes = async (): Promise<NoteType[]> => {
+//   try {
+//     const response = await axios.get<ApiResponse<NoteType[]>>(`${API_URL}/notes/`);
+//     return response.data.data; // Assuming response data is in `data` property
+//   } catch (error) {
+//     console.error('Error fetching notes:', error);
+//     throw error;
+//   }
+// };
+
+// // Get a specific note by ID
+// export const getNote = async (id: string): Promise<NoteType> => {
+//   try {
+//     const response = await axios.get<ApiResponse<NoteType[]>>(`${API_URL}/notes/${id}`);
+//     return response.data?.notes; // Assuming response data is in `data` property
+//   } catch (error) {
+//     console.error(`Error fetching note ${id}:`, error);
+//     throw error;
+//   }
+// };
+
+// // Create a new note
+// export const createNote = async (noteData: NoteType): Promise<NoteType> => {
+//   try {
+//     const response = await axios.post<ApiResponse<NoteType>>(`${API_URL}/notes/`, noteData);
+//     return response.data.data; // Assuming response data is in `data` property
+//   } catch (error) {
+//     console.error('Error creating note:', error);
+//     throw error;
+//   }
+// };
+
+// // Update an existing note
+// export const updateNote = async (id: string, formData: FormData): Promise<NoteType> => {
+//   const response = await fetch(`/api/notes/${id}`, {
+//     method: 'PUT',
+//     body: formData,
+//   });
+//   return await response.json();
+// };
+
+// // Delete a note
+// export const deleteNote = async (id: string): Promise<void> => {
+//   try {
+//     const response = await axios.delete<ApiResponse>(`${API_URL}/notes/${id}`);
+//     if (!response.data.success) {
+//       throw new Error('Failed to delete note');
+//     }
+//   } catch (error) {
+//     console.error(`Error deleting note ${id}:`, error);
+//     throw error;
+//   }
+// };

@@ -187,3 +187,81 @@ function Home() {
 }
 
 export default Home;
+
+
+
+
+
+
+
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import { Link } from 'react-router-dom';
+// import Note from '../components/Note';
+// import { getNotes } from '../api';
+// import { NoteType } from '../types';
+
+// function Home(): JSX.Element {
+//   const [notes, setNotes] = useState<NoteType[]>([]);
+//   const [loading, setLoading] = useState<boolean>(true);
+//   const [error, setError] = useState<string | null>(null);
+
+//   useEffect(() => {
+//     const fetchNotes = async () => {
+//       try {
+//         const response = await getNotes();
+//         if (response.success) {
+//           setNotes(response.notes);
+//         } else {
+//           setError('Failed to fetch notes');
+//         }
+//       } catch (err) {
+//         setError('Error connecting to server');
+//         console.error(err);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchNotes();
+//   }, []);
+
+//   if (loading) {
+//     return (
+//       <div className="loading-container">
+//         <div className="spinner"></div>
+//       </div>
+//     );
+//   }
+
+//   if (error) {
+//     return <div className="alert alert-danger">{error}</div>;
+//   }
+
+//   return (
+//     <div>
+//       <div className="notes-header">
+//         <h2 className="notes-title">My Notes</h2>
+//         <Link to="/create" className="btn btn-success">
+//           Create New Note
+//         </Link>
+//       </div>
+
+//       {notes.length === 0 ? (
+//         <div className="notes-empty">
+//           <p>You don't have any notes yet. Click the "Create New Note" button to get started!</p>
+//         </div>
+//       ) : (
+//         <div className="grid">
+//           {notes.map((note) => (
+//             <Note key={note._id} note={note} />
+//           ))}
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default Home;

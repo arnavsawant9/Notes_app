@@ -219,11 +219,16 @@ def allowed_file(filename):
 @notes_bp.route('/', methods=['GET'])
 def get_notes():
     notes = notes_model.get_all()
-    return jsonify(success=True, notes=notes)
+    if notes:
+        return jsonify(success=True, notes=notes)
+    else:
+        return jsonify(success=False, message="Note not found"), 404
 
 @notes_bp.route('/<note_id>', methods=['GET'])
 def get_note(note_id):
+    print("Hello...")
     note = notes_model.get_by_id(note_id)
+    print(note)
     if note:
         return jsonify(success=True, note=note)
     else:

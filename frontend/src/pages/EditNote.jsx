@@ -265,3 +265,97 @@ function EditNote() {
 }
 
 export default EditNote;
+
+
+
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import { useParams, useNavigate, Link } from 'react-router-dom';
+// import NoteForm from '../components/NoteForm';
+// import { getNote, updateNote } from '../api';
+// import { NoteType } from '../types';
+
+// function EditNote(): JSX.Element {
+//   const { id } = useParams<{ id: string }>();
+//   const navigate = useNavigate();
+//   const [note, setNote] = useState<NoteType | null>(null);
+//   const [loading, setLoading] = useState<boolean>(true);
+//   const [error, setError] = useState<string | null>(null);
+
+//   useEffect(() => {
+//     const fetchNote = async () => {
+//       try {
+//         const response = await getNote(id!);
+//         if (response) {
+//           setNote(response);
+//         } else {
+//           setError('Failed to fetch note');
+//         }
+//       } catch (err) {
+//         setError('Error connecting to server');
+//         console.error(err);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchNote();
+//   }, [id]);
+
+//   const handleSubmit = async (formData: FormData) => {
+//     try {
+//       const response = await updateNote(id!, formData);
+//       if (response) {
+//         navigate(`/note/${id}`);
+//       } else {
+//         setError('Failed to update note');
+//       }
+//     } catch (err) {
+//       console.error(err);
+//       setError('Error connecting to server');
+//     }
+//   };
+
+//   if (loading) {
+//     return (
+//       <div className="loading-container">
+//         <div className="spinner"></div>
+//       </div>
+//     );
+//   }
+
+//   if (error) {
+//     return <div className="alert alert-danger">{error}</div>;
+//   }
+
+//   if (!note) {
+//     return (
+//       <div className="notes-empty">
+//         <p>Note not found</p>
+//         <div className="mt-3 text-center">
+//           <Link to="/" className="link">
+//             ← Back to Notes
+//           </Link>
+//         </div>
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <div>
+//       <div className="mb-3">
+//         <Link to={`/note/${id}`} className="back-link">
+//           ← Back to Note
+//         </Link>
+//       </div>
+
+//       <h2 className="notes-title mb-4">Edit Note</h2>
+
+//       <NoteForm initialData={note} onSubmit={handleSubmit} buttonText="Update Note" />
+//     </div>
+//   );
+// }
+
+// export default EditNote;

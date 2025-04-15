@@ -288,3 +288,151 @@ function NotePage() {
 }
 
 export default NotePage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import { useParams, useNavigate, Link } from 'react-router-dom';
+// import { getNote, deleteNote } from '../api';
+// import { NoteType } from '../types';
+
+// function NotePage(): JSX.Element {
+//   const { id } = useParams<{ id: string }>();
+//   const navigate = useNavigate();
+//   const [note, setNote] = useState<NoteType | null>(null);
+//   const [loading, setLoading] = useState<boolean>(true);
+//   const [error, setError] = useState<string | null>(null);
+//   const [deleteConfirm, setDeleteConfirm] = useState<boolean>(false);
+
+//   useEffect(() => {
+//     const fetchNote = async () => {
+//       try {
+//         const response = await getNote(id!);
+//         if (response.success) {
+//           setNote(response.note);
+//         } else {
+//           setError('Failed to fetch note');
+//         }
+//       } catch (err) {
+//         setError('Error connecting to server');
+//         console.error(err);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchNote();
+//   }, [id]);
+
+//   const handleDelete = async () => {
+//     try {
+//       const response = await deleteNote(id!);
+//       if (response.success) {
+//         navigate('/');
+//       } else {
+//         setError('Failed to delete note');
+//       }
+//     } catch (err) {
+//       setError('Error connecting to server');
+//       console.error(err);
+//     }
+//   };
+
+//   const formatDate = (dateString: string): string => {
+//     const options: Intl.DateTimeFormatOptions = {
+//       year: 'numeric',
+//       month: 'long',
+//       day: 'numeric',
+//       hour: '2-digit',
+//       minute: '2-digit',
+//     };
+//     return new Date(dateString).toLocaleDateString(undefined, options);
+//   };
+
+//   if (loading) {
+//     return (
+//       <div className="loading-container">
+//         <div className="spinner"></div>
+//       </div>
+//     );
+//   }
+
+//   if (error) {
+//     return <div className="alert alert-danger">{error}</div>;
+//   }
+
+//   if (!note) {
+//     return (
+//       <div className="notes-empty">
+//         <p>Note not found</p>
+//         <div className="mt-3 text-center">
+//           <Link to="/" className="link">
+//             ← Back to Notes
+//           </Link>
+//         </div>
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <div>
+//       <div className="mb-3">
+//         <Link to="/" className="back-link">
+//           ← Back to Notes
+//         </Link>
+//       </div>
+
+//       <div className="card">
+//         <h2 className="text-2xl font-bold mb-2">{note.title}</h2>
+//         <p className="note-meta">Created: {formatDate(note.date)}</p>
+
+//         <div className="mb-4">
+//           <p className="whitespace-pre-line">{note.content}</p>
+//         </div>
+
+//         <div className="note-actions">
+//           <Link to={`/edit/${note._id}`} className="btn btn-primary">
+//             Edit Note
+//           </Link>
+
+//           {!deleteConfirm ? (
+//             <button onClick={() => setDeleteConfirm(true)} className="btn btn-danger">
+//               Delete Note
+//             </button>
+//           ) : (
+//             <div className="note-delete-confirm">
+//               <button onClick={handleDelete} className="btn btn-danger">
+//                 Confirm Delete
+//               </button>
+//               <button onClick={() => setDeleteConfirm(false)} className="btn btn-secondary">
+//                 Cancel
+//               </button>
+//             </div>
+//           )}
+//         </div>
+
+//         {note.file_name && (
+//           <div className="mt-2">
+//             <a href={`/uploads/${note.file_name}`} target="_blank" rel="noopener noreferrer">
+//               📎 View Attached File
+//             </a>
+//           </div>
+//         )}
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default NotePage;
