@@ -125,57 +125,59 @@
 
 
 
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import NoteForm from '../components/NoteForm';
-import { createNote } from '../api';
-import '../index.css'; // Import the external CSS
+// import React, { useState } from 'react';
+// import { useNavigate, Link } from 'react-router-dom';
+// import NoteForm from '../components/NoteForm';
+// import { createNote } from '../api';
+// import '../index.css'; // Import the external CSS
 
-function CreateNote() {
-  const navigate = useNavigate();
-  const [error, setError] = useState(null);
+// function CreateNote() {
+//   const navigate = useNavigate();
+//   const [error, setError] = useState(null);
 
-  const handleSubmit = async (noteData) => {
-    try {
-      setError(null);
-      const response = await createNote(noteData);
-      if (response.success) {
-        navigate('/');
-      } else {
-        setError('Failed to create note');
-      }
-    } catch (err) {
-      setError('Error connecting to server');
-      console.error(err);
-    }
-  };
+//   const handleSubmit = async (noteData) => {
+//     try {
+//       setError(null);
+//       const response = await createNote(noteData);
+//       if (response.success) {
+//         navigate('/');
+//       } else {
+//         setError('Failed to create note');
+//       }
+//     } catch (err) {
+//       setError('Error connecting to server');
+//       console.error(err);
+//     }
+//   };
 
-  return (
-    <div className="page-container">
-      <div className="header">
-        <h1 className="header-title">Create New Note</h1>
-      </div>
+//   return (
+//     <div className="page-container">
+//       <div className="header">
+//         <h1 className="header-title">Create New Note</h1>
+//       </div>
 
-      <div className="mb-3">
-        <Link to="/" className="back-link">
-          ← Back to Notes
-        </Link>
-      </div>
+//       <div className="mb-3">
+//         <Link to="/" className="back-link">
+//           ← Back to Notes
+//         </Link>
+//       </div>
 
-      <div className="card">
-        {error && (
-          <div className="alert alert-danger error-message">
-            {error}
-          </div>
-        )}
+//       <div className="card">
+//         {error && (
+//           <div className="alert alert-danger error-message">
+//             {error}
+//           </div>
+//         )}
 
-        <NoteForm onSubmit={handleSubmit} buttonText="Create Note" />
-      </div>
-    </div>
-  );
-}
+//         <NoteForm onSubmit={handleSubmit} buttonText="Create Note" />
+//       </div>
+//     </div>
+//   );
+// }
 
-export default CreateNote;
+// export default CreateNote;
+
+
 
 
 

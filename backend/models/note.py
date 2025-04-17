@@ -137,3 +137,5 @@ class Note:
             return result.deleted_count > 0
         except:
             return False
+
+

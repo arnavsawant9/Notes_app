@@ -1,0 +1,125 @@
+/* frontend/src/styles/Note.css */
+.note-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin-bottom: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+  
+  .note-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .note-card.pinned {
+    border-left: 4px solid #FFC107;
+    background-color: #fffdf1;
+  }
+  
+  .pin-indicator {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 16px;
+  }
+  
+  .note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  
+  .note-title {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+    flex-grow: 1;
+  }
+  
+  .note-category {
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    margin-left: 8px;
+  }
+  
+  .note-content {
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  /* Style for rich text content */
+  .note-content h1, 
+  .note-content h2, 
+  .note-content h3 {
+    margin-top: 12px;
+    margin-bottom: 8px;
+  }
+  
+  .note-content ul, 
+  .note-content ol {
+    padding-left: 20px;
+  }
+  
+  .note-content blockquote {
+    border-left: 3px solid #ddd;
+    padding-left: 10px;
+    color: #666;
+    font-style: italic;
+  }
+  
+  .note-content img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .note-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+    font-size: 12px;
+  }
+  
+  .note-date {
+    color: #888;
+  }
+  
+  .note-actions {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .note-actions button,
+  .note-actions a {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .note-actions button:hover,
+  .note-actions a:hover {
+    opacity: 1;
+  }
+  
+  .pin-button.pinned {
+    opacity: 1;
+    color: #FFC107;
+  }

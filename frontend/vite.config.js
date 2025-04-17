@@ -5,7 +5,10 @@ import tailwindcss from '@tailwindcss/vite';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      // This allows JSX in .js files
+      include: "**/*.{jsx,js}"
+    }),
     tailwindcss(),
   ],
   css:{

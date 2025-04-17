@@ -87,11 +87,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Note({ note }) {
-  // Format the date
-  // const formatDate = (dateString) => {
-  //   const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-  //   return new Date(dateString).toLocaleDateString(undefined, options);
-  // };
+  if (!note || !note.content) {
+    return null; // or render a fallback UI
+  }
+
   const formatDate = () => {
     const options = { 
       year: 'numeric', 
@@ -134,48 +133,3 @@ export default Note;
 
 
 
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-
-// interface NoteType {
-//   _id: string;
-//   title: string;
-//   content: string;
-//   date: string;
-// }
-
-// interface NoteProps {
-//   note: NoteType;
-// }
-
-// const Note: React.FC<NoteProps> = ({ note }) => {
-//   const formatDate = (dateString: string): string => {
-//     const options: Intl.DateTimeFormatOptions = {
-//       year: 'numeric',
-//       month: 'long',
-//       day: 'numeric',
-//       hour: '2-digit',
-//       minute: '2-digit'
-//     };
-//     return new Date(dateString).toLocaleDateString(undefined, options);
-//   };
-
-//   return (
-//     <div className="card">
-//       <h3 className="card-title">{note.title}</h3>
-//       <p className="card-content">
-//         {note.content.length > 100
-//           ? `${note.content.substring(0, 100)}...`
-//           : note.content}
-//       </p>
-//       <div className="card-footer">
-//         <span>{formatDate(note.date)}</span>
-//         <Link to={`/note/${note._id}`} className="link">
-//           View Note
-//         </Link>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Note;
